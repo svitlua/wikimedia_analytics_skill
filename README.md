@@ -22,12 +22,7 @@ The skill operates on a 2-tier architecture:
 1. **Agentic Layer (`SKILL.md` / `test_openrouter_agent.py`):** Handles natural language understanding, extracts parameters from query prompts, and synthesizes structured business memos.
 2. **Deterministic Data Layer (`scripts/`):** A robust Python pipeline that fetches, cleans, and processes data to prevent LLM hallucinations.
 
-```text
-[User Query] 
-     │
-     ▼
-[AI Agent (OpenRouter LLM)] ────(JSON Parameters)──┐
-                                                   ▼
+```
 ┌──────────────────────────────────────────────────┴──────────────────────────────────┐
 │ Python Orchestrator (`scripts/run_pipeline.py`)                                     │
 │                                                                                     │
@@ -36,5 +31,3 @@ The skill operates on a 2-tier architecture:
 │  3. Visualizer (`generate_chart.py`) → Y-axis normalized Matplotlib charts          │
 │  4. Exporter (`export_pdf.py`)   → 1-page PDF Executive Summary (ReportLab)        │
 └──────────────────────────────────────────────────┬──────────────────────────────────┘
-                                                   ▼
-[User Output] ◄───(Strategic Decision Memo)
